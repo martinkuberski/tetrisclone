@@ -11,6 +11,7 @@ enum blockTypes
 
 active = 1;
 timer = 0;
+position = [1, 5];
 
 type = irandom_range(blockTypes.blue, blockTypes.yellow);
 switch (type) {

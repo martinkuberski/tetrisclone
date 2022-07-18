@@ -17,5 +17,5 @@ if(active) {
 		timer = GAMESPEED + 1 - global.level;
 		y += BLOCKWIDTH;
 	} else timer--;
-	if(y > PLAYARENAHEIGHT - sprite_height*1.5) active = 0;
+	if(y > PLAYARENAHEIGHTPX - sprite_height*1.5) active = 0;
 }
