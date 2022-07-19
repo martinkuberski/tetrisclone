@@ -10,15 +10,19 @@ if(active) {
 		switch(orientation) {
 			case ori.up_:
 				occupying = [position, [position[0]-1, position[1]], [position[0], position[1]-1], [position[0], position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0]+1, position[1]], [position[0]-1, position[1]], [position[0]-1, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0], position[1]-1], [position[0], position[1]-2], [position[0]+1, position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]-1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0]-2, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 		}
 		break;
@@ -26,15 +30,19 @@ if(active) {
 		switch(orientation) {
 			case ori.up_:
 				occupying = [position, [position[0]+1, position[1]], [position[0]+2, position[1]], [position[0]+3, position[1]]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])||scanArray(global.occupied, [position[0]+2, position[1]+1])||scanArray(global.occupied, [position[0], position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0], position[1]-2], [position[0], position[1]-3]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0]+1, position[1]], [position[0]+2, position[1]], [position[0]+3, position[1]]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])||scanArray(global.occupied, [position[0]+2, position[1]+1])||scanArray(global.occupied, [position[0], position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0], position[1]-2], [position[0], position[1]-3]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 		}
 		break;
@@ -42,15 +50,19 @@ if(active) {
 		switch(orientation) {
 			case ori.up_:
 				occupying = [position, [position[0]-1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0]-1, position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0]-1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0]-1, position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 		}
 		break;
@@ -58,15 +70,19 @@ if(active) {
 		switch(orientation) {
 			case ori.up_:
 				occupying = [position, [position[0]-1, position[1]], [position[0]+1, position[1]], [position[0], position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0]+1, position[1]-1], [position[0], position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0]+1, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0], position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 		}
 		break;
@@ -74,15 +90,19 @@ if(active) {
 		switch(orientation) {
 			case ori.up_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0], position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0]+1, position[1]-1], [position[0]+2, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0], position[1]-1], [position[0], position[1]-2], [position[0]-1, position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]-1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0]-1, position[1]], [position[0]-2, position[1]], [position[0], position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]-2, position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 		}
 		break;
@@ -90,15 +110,19 @@ if(active) {
 		switch(orientation) {
 			case ori.up_:
 				occupying = [position, [position[0]-1, position[1]-1], [position[0], position[1]-1], [position[0]+1, position[1]]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0]+1, position[1]-1], [position[0]+1, position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0]-1, position[1]-1], [position[0], position[1]-1], [position[0]+1, position[1]]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0]+1, position[1]-1], [position[0]+1, position[1]-2]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
 				break;
 		}
 		break;
@@ -106,15 +130,19 @@ if(active) {
 		switch(orientation) {
 			case ori.up_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
+				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
 				break;
 		}
 		break;
@@ -132,16 +160,11 @@ if(active) {
 	}
 	if(timer == 0 || down) {
 		timer = GAMESPEED + 1 - global.level;
-		if(vEdge == 1) {
-			array_push(global.occupied, occupying);
-			active = 0;
-		} else position[1]++;
+		if(vEdge == 1) inactivate(); 
+		else position[1]++;
 	} else timer--;
-	if(position[1] >= PLAYARENAHEIGHT - 1) {
-		array_push(global.occupied, occupying);
-		active = 0;
-}
-
-x = PLAYARENASTART + position[0] * BLOCKWIDTH;
-y = position[1] * BLOCKWIDTH;
+	//if(position[1] == PLAYARENAHEIGHT - 1) inactivate();
+	
+	x = PLAYARENASTART + position[0] * BLOCKWIDTH;
+	y = position[1] * BLOCKWIDTH;
 }

@@ -2,7 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scanArray(array, val){
 	for(i = 0; i < array_length(array); i++) {
-		if(array[i] == val) return true;
+		if(array_equals(array[i], val) || array[i] == val) return true;
 	}
 	return false;
 }
