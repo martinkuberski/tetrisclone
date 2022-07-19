@@ -10,5 +10,6 @@ randomise();
 
 global.level = 10;
 global.score = 0;
+global.occupied = [];
 
 currentBlock = pointer_null;

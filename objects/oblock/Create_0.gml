@@ -16,11 +16,19 @@ enum ori {
 	left_	
 }
 
+enum ed {
+	left_,
+	centre_,
+	right_
+}
 
 active = 1;
 timer = 0;
 position = [4, 0];
 orientation = ori.up_;
+occupying = [position, position, position, position];
+hEdge = ed.centre_;
+vEdge = 0;
 
 type = irandom_range(blockTypes.blue, blockTypes.yellow);
 switch(type) {
