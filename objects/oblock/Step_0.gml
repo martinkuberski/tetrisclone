@@ -10,19 +10,33 @@ if(active) {
 		switch(orientation) {
 			case ori.up_:
 				occupying = [position, [position[0]-1, position[1]], [position[0], position[1]-1], [position[0], position[1]-2]];
+				//vertical collisions
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])) vEdge = 1; else vEdge = 0;
+				//horizontal collisions
+				if(scanArray(global.occupied, [position[0]-2, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])||scanArray(global.occupied, [position[0]-1, position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])||scanArray(global.occupied, [position[0]+1, position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0]+1, position[1]], [position[0]-1, position[1]], [position[0]-1, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-2, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+2, position[1]])||scanArray(global.occupied, [position[0], position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0], position[1]-1], [position[0], position[1]-2], [position[0]+1, position[1]-2]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]-1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])||scanArray(global.occupied, [position[0]-1, position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])||scanArray(global.occupied, [position[0]+2, position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0]-2, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]])||scanArray(global.occupied, [position[0]-3, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 		}
 		break;
@@ -31,18 +45,30 @@ if(active) {
 			case ori.up_:
 				occupying = [position, [position[0]+1, position[1]], [position[0]+2, position[1]], [position[0]+3, position[1]]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])||scanArray(global.occupied, [position[0]+2, position[1]+1])||scanArray(global.occupied, [position[0], position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+4, position[1]])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0], position[1]-2], [position[0], position[1]-3]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])||scanArray(global.occupied, [position[0]-1, position[1]-2])||scanArray(global.occupied, [position[0]-1, position[1]-3])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])||scanArray(global.occupied, [position[0]+1, position[1]-2])||scanArray(global.occupied, [position[0]+1, position[1]-3])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0]+1, position[1]], [position[0]+2, position[1]], [position[0]+3, position[1]]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])||scanArray(global.occupied, [position[0]+2, position[1]+1])||scanArray(global.occupied, [position[0], position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+4, position[1]])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0], position[1]-2], [position[0], position[1]-3]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])||scanArray(global.occupied, [position[0]-1, position[1]-2])||scanArray(global.occupied, [position[0]-1, position[1]-3])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])||scanArray(global.occupied, [position[0]+1, position[1]-2])||scanArray(global.occupied, [position[0]+1, position[1]-3])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 		}
 		break;
@@ -51,18 +77,30 @@ if(active) {
 			case ori.up_:
 				occupying = [position, [position[0]-1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-2, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0]-1, position[1]-2]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]-1])||scanArray(global.occupied, [position[0]-2, position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])||scanArray(global.occupied, [position[0], position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0]-1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-2, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0]-1, position[1]-2]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]-1])||scanArray(global.occupied, [position[0]-2, position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])||scanArray(global.occupied, [position[0], position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 		}
 		break;
@@ -71,18 +109,30 @@ if(active) {
 			case ori.up_:
 				occupying = [position, [position[0]-1, position[1]], [position[0]+1, position[1]], [position[0], position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-2, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+2, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0]+1, position[1]-1], [position[0], position[1]-2]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])||scanArray(global.occupied, [position[0]-1, position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])||scanArray(global.occupied, [position[0]+1, position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0]+1, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0]-1, position[1]-1], [position[0], position[1]-2]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]-1])||scanArray(global.occupied, [position[0]-1, position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])||scanArray(global.occupied, [position[0]+1, position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 		}
 		break;
@@ -91,18 +141,30 @@ if(active) {
 			case ori.up_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0], position[1]-2]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])||scanArray(global.occupied, [position[0]-1, position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+2, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])||scanArray(global.occupied, [position[0]+1, position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0]+1, position[1]-1], [position[0]+2, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+3, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0], position[1]-1], [position[0], position[1]-2], [position[0]-1, position[1]-2]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]-1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])||scanArray(global.occupied, [position[0]-2, position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])||scanArray(global.occupied, [position[0]+1, position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0]-1, position[1]], [position[0]-2, position[1]], [position[0], position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]+1])||scanArray(global.occupied, [position[0]-2, position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-3, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 		}
 		break;
@@ -111,18 +173,30 @@ if(active) {
 			case ori.up_:
 				occupying = [position, [position[0]-1, position[1]-1], [position[0], position[1]-1], [position[0]+1, position[1]]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+2, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0], position[1]-1], [position[0]+1, position[1]-1], [position[0]+1, position[1]-2]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])||scanArray(global.occupied, [position[0], position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])||scanArray(global.occupied, [position[0]+2, position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0]-1, position[1]-1], [position[0], position[1]-1], [position[0]+1, position[1]]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])||scanArray(global.occupied, [position[0]-1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-2, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+2, position[1]])||scanArray(global.occupied, [position[0]+1, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0], position[1]-1], [position[0]+1, position[1]-1], [position[0]+1, position[1]-2]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])||scanArray(global.occupied, [position[0], position[1]-2])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+1, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])||scanArray(global.occupied, [position[0]+2, position[1]-2])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 		}
 		break;
@@ -131,27 +205,39 @@ if(active) {
 			case ori.up_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+2, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.right_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+2, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.down_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+2, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 			case ori.left_:
 				occupying = [position, [position[0]+1, position[1]], [position[0], position[1]-1], [position[0]+1, position[1]-1]];
 				if(scanArray(global.occupied, [position[0], position[1]+1])||scanArray(global.occupied, [position[0]+1, position[1]+1])) vEdge = 1; else vEdge = 0;
+				if(scanArray(global.occupied, [position[0]-1, position[1]])||scanArray(global.occupied, [position[0]-1, position[1]-1])) hEdge = ed.left_;
+				else if(scanArray(global.occupied, [position[0]+2, position[1]])||scanArray(global.occupied, [position[0]+2, position[1]-1])) hEdge = ed.right_;
+				else hEdge = ed.centre_;
 				break;
 		}
 		break;
 }
 	
-	if(left && position[0] > 0) {
+	if(left && hEdge != ed.left_) {
 		position[0]--;
 	}
-	if(right && position[0] < PLAYARENAWIDTH - 1) {
+	if(right && hEdge != ed.right_) {
 		position[0]++;
 	}
 	if(up) {
