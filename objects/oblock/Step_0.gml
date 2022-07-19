@@ -11,7 +11,10 @@ if(active) {
 	if(right && position[0] < PLAYARENAWIDTH - 1) {
 		position[0]++;
 	}
-	
+	if(up) {
+		if(orientation != ori.left_) orientation++;
+		else orientation = ori.up_;
+	}
 	if(timer == 0 || down) {
 		timer = GAMESPEED + 1 - global.level;
 		position[1]++;

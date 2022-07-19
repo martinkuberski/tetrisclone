@@ -9,12 +9,21 @@ enum blockTypes
 	yellow
 }
 
+enum ori {
+	up_,
+	right_,
+	down_,
+	left_	
+}
+
+
 active = 1;
 timer = 0;
 position = [4, 0];
+orientation = ori.up_;
 
 type = irandom_range(blockTypes.blue, blockTypes.yellow);
-switch (type) {
+switch(type) {
 	case blockTypes.blue:
 		sprite_index = sBlue;
 		break;
