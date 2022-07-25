@@ -1,4 +1,4 @@
-if(active) {
+
 	var left = keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"));
 	var right = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"));
 	var up = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
@@ -249,8 +249,6 @@ if(active) {
 		if(vEdge == 1) inactivate(); 
 		else position[1]++;
 	} else timer--;
-	//if(position[1] == PLAYARENAHEIGHT - 1) inactivate();
 	
 	x = PLAYARENASTART + position[0] * BLOCKWIDTH;
 	y = position[1] * BLOCKWIDTH;
-}

@@ -11,9 +11,15 @@ randomise();
 global.level = 10;
 global.score = 0;
 global.occupied = [];
-for(i=0; i<PLAYARENAWIDTH; i++) array_push(global.occupied, [i, PLAYARENAHEIGHT]);
+global.occupiedC = [];
+
+for(i=0; i<PLAYARENAWIDTH; i++) {
+	array_push(global.occupied, [i, PLAYARENAHEIGHT]);
+	array_push(global.occupiedC, pointer_null);
+}
 for(i=0; i<PLAYARENAHEIGHT; i++) {
 	array_push(global.occupied, [-1, i]);
+	array_push(global.occupiedC, pointer_null);
 	array_push(global.occupied, [PLAYARENAWIDTH, i]);
+	array_push(global.occupiedC, pointer_null);
 }
-currentBlock = pointer_null;

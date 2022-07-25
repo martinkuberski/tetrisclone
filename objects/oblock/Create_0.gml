@@ -22,7 +22,6 @@ enum ed {
 	right_
 }
 
-active = 1;
 timer = 0;
 position = [4, 0];
 orientation = ori.up_;
