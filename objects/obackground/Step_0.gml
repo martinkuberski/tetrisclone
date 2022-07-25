@@ -1,12 +1,38 @@
-var spawn = keyboard_check_pressed(ord("Z"));
+//var spawn = keyboard_check_pressed(ord("Z"));
 var fs = keyboard_check_pressed(ord("F"));
 var row = [];
+var block = pointer_null;
 
-if(spawn) {
+//if(spawn) {
 	if(!instance_exists(oBlock)) {
-		instance_create_layer(PLAYARENASTART + BLOCKWIDTH*4, 1, "Blocks", oBlock);
+		block = instance_create_layer(PLAYARENASTART + BLOCKWIDTH*4, 1, "Blocks", oBlock);
+		block.type = nextBlock;
+		switch(nextBlock) {
+			case blockTypes.blue:
+				block.sprite_index = sBlue;
+				break;
+			case blockTypes.cyan:
+				block.sprite_index = sCyan;
+				break;
+			case blockTypes.green:
+				block.sprite_index = sGreen;
+				break;
+			case blockTypes.magenta:
+				block.sprite_index = sMagenta;
+				break;
+			case blockTypes.orange:
+				block.sprite_index = sOrange;
+				break;
+			case blockTypes.red:
+				block.sprite_index = sRed;
+				break;
+			case blockTypes.yellow:
+				block.sprite_index = sYellow;
+				break;
+		}
+		nextBlock = irandom_range(blockTypes.blue, blockTypes.yellow);
 	}
-}
+//}
 
 if(fs) 
 {
@@ -19,7 +45,7 @@ if(fs)
         window_set_fullscreen(true);
     }
 }
-var a = 0;
+
 for(i = 0; i < PLAYARENAHEIGHT; i++) {
 	row = [];
 	for(j = 0; j < array_length(global.occupied); j++) {

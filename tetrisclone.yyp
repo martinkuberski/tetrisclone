@@ -14,6 +14,7 @@
     {"id":{"name":"sYellow","path":"sprites/sYellow/sYellow.yy",},"order":7,},
     {"id":{"name":"oBlock","path":"objects/oBlock/oBlock.yy",},"order":0,},
     {"id":{"name":"sOrange","path":"sprites/sOrange/sOrange.yy",},"order":9,},
+    {"id":{"name":"sBlock","path":"sprites/sBlock/sBlock.yy",},"order":11,},
     {"id":{"name":"scanArray","path":"scripts/scanArray/scanArray.yy",},"order":0,},
     {"id":{"name":"oBackground","path":"objects/oBackground/oBackground.yy",},"order":3,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},

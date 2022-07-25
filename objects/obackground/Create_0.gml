@@ -12,6 +12,7 @@ global.level = 10;
 global.score = 0;
 global.occupied = [];
 global.occupiedC = [];
+nextBlock = irandom_range(blockTypes.blue, blockTypes.yellow);
 
 for(i=0; i<PLAYARENAWIDTH; i++) {
 	array_push(global.occupied, [i, PLAYARENAHEIGHT]);
