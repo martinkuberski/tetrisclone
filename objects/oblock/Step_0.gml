@@ -20,7 +20,7 @@
 		if(orientation != ori.left_ && !scanArrayAny(global.occupied, checkCollision(type, orientation+1)[2])) orientation++;
 		else if(!scanArrayAny(global.occupied,checkCollision(type, ori.up_)[2])) orientation = ori.up_;
 	}
-	if(timer == 0 || down) {
+	if(timer == 0 || (down && vEdge == 0)) {
 		timer = GAMESPEED + 1 - global.level;
 		if(vEdge == 1) inactivate(); 
 		else position[1]++;
