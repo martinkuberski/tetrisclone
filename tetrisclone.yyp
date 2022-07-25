@@ -4,6 +4,7 @@
     {"id":{"name":"sCyan","path":"sprites/sCyan/sCyan.yy",},"order":6,},
     {"id":{"name":"sBlue","path":"sprites/sBlue/sBlue.yy",},"order":4,},
     {"id":{"name":"inactivate","path":"scripts/inactivate/inactivate.yy",},"order":1,},
+    {"id":{"name":"checkCollision","path":"scripts/checkCollision/checkCollision.yy",},"order":2,},
     {"id":{"name":"sMagenta","path":"sprites/sMagenta/sMagenta.yy",},"order":5,},
     {"id":{"name":"sbgMenu","path":"sprites/sbgMenu/sbgMenu.yy",},"order":2,},
     {"id":{"name":"sbgPlay","path":"sprites/sbgPlay/sbgPlay.yy",},"order":1,},
