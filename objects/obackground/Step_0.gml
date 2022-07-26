@@ -46,6 +46,11 @@ if(fs)
     }
 }
 
+global.level = clamp((floor(global.linesCleared/10)+1),1,GAMESPEED);
+
+var rowsRemoved = 0;
+addScore = 0;
+
 for(i = 0; i < PLAYARENAHEIGHT; i++) {
 	row = [];
 	for(j = 0; j < array_length(global.occupied); j++) {
@@ -59,5 +64,23 @@ for(i = 0; i < PLAYARENAHEIGHT; i++) {
 		for(j = 0; j < array_length(global.occupied); j++) {
 			if(global.occupiedC[j] != pointer_null && global.occupied[j][1] < i) global.occupied[j][1]++;
 		}
+		rowsRemoved++;
 	}
 }
+
+switch(rowsRemoved) {
+	case 1:
+		addScore = 100;
+		break;
+	case 2:
+		addScore = 300;
+		break;
+	case 3:
+		addScore = 500;
+		break;
+	case 4:
+		addScore = 800;
+		break;
+}
+global.linesCleared += rowsRemoved;
+global.score += addScore * global.level;

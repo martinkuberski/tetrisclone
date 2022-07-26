@@ -20,7 +20,8 @@
 		else if(!scanArrayAny(global.occupied,checkCollision(type, ori.up_)[2])) orientation = ori.up_;
 	}
 	if(timer == 0 || (down && vEdge == 0)) {
-		timer = GAMESPEED + 1 - global.level;
+		if(timer != 0) global.score += 1;
+		timer = ceil(GAMESPEED / global.level);
 		if(vEdge == 1) inactivate(); 
 		else position[1]++;
 	} else timer--;

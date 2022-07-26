@@ -8,11 +8,15 @@ randomise();
 #macro BLOCKWIDTH 8
 #macro GAMESPEED 30
 
-global.level = 10;
+global.linesCleared = 0;
+global.level = 1;
 global.score = 0;
 global.occupied = [];
 global.occupiedC = [];
 nextBlock = irandom_range(blockTypes.blue, blockTypes.yellow);
+addScore = 0;
+drawTextTimer = 0;
+drawTextStr = "";
 
 for(i=0; i<PLAYARENAWIDTH; i++) {
 	array_push(global.occupied, [i, PLAYARENAHEIGHT]);
