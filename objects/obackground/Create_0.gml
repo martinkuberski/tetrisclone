@@ -13,6 +13,7 @@ global.level = 1;
 global.score = 0;
 global.occupied = [];
 global.occupiedC = [];
+global.heldBlock = pointer_null;
 nextBlock = irandom_range(blockTypes.blue, blockTypes.yellow);
 addScore = 0;
 drawTextTimer = 0;

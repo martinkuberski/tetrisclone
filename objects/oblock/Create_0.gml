@@ -29,3 +29,4 @@ orientation = ori.up_;
 occupying = [position, position, position, position];
 hEdge = ed.centre_;
 vEdge = 0;
+held = false;
